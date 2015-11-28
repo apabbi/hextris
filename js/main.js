@@ -373,19 +373,21 @@ function showHelp() {
 	$('#helpScreen').fadeToggle(150, "linear");
 }
 function showHighscore() {
+
 	if ($('#openHighscoreSideBar').attr('src') == './images/btn_back.svg') {
 		$('#openhighscoreSideBar').attr('src', './images/btn_help.svg');
 		if (gameState != 0 && gameState != -1 && gameState != 2) {
-			$('#fork-ribbon').fadeOut(150, 'linear');
+			//$('#fork-ribbon').fadeOut(150, 'linear');
 		}
 	} else {
 		$('#openHighscoreSideBar').attr('src', './images/btn_back.svg');
 		if (gameState == 0 && gameState == -1 && gameState == 2) {
-			$('#fork-ribbon').fadeIn(150, 'linear');
+			//$('#fork-ribbon').fadeIn(150, 'linear');
 		}
 	}
 
-	$("#inst_main_body").html("<div id = 'instructions_head'>LEADERBOARDS</div><p>The following are top 3 scores...</p>");
+	//$("#inst_main_body").html("<div id = 'instructions_head'>LEADERBOARDS</div><p>The following are top 3 scores...</p>");
+	topthreeDisplay();
 	if (gameState == 1) {
 		pause();
 	}
@@ -396,5 +398,6 @@ function showHighscore() {
 
 	$("#openSideBar").fadeIn(150,"linear");
 	$('#helpScreen').fadeToggle(150, "linear");
-	drawScoreboard();
+	
+	//drawScoreboard();
 }

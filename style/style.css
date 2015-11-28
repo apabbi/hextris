@@ -448,6 +448,10 @@ body {
 	/*display:none;*/
 }
 
+#topthreescreen {
+	/*display:none;*/
+}
+
 #restart{
 	display:none;
 	cursor:pointer !important;
@@ -496,6 +500,9 @@ body {
 	overflow:hidden;
 }
 #gameoverscreen {
+	padding:8px;
+}
+#topthreescreen {
 	padding:8px;
 }
 @font-face {

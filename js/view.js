@@ -161,6 +161,20 @@ function gameOverDisplay() {
     set_score_pos();
 }
 
+function topthreeDisplay() {
+	settings.ending_block=false;
+	Cookies.set("visited",true);
+	var c = document.getElementById("canvas");
+	c.className = "blur";
+	updateHighScores();
+	
+	$("#topthreescreen").fadeIn();
+	//$("#buttonCont").fadeIn();
+	$("#container").fadeIn();
+
+    set_score_pos();
+}
+
 function updateHighScores (){
     $("#cScore").text(score);
     $("#1place").text(highscores[0]);
