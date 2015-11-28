@@ -272,9 +272,12 @@ function handleClick(e) {
 function handleTapBefore(e) {
 	var x = e.changedTouches[0].clientX;
 	var y = e.changedTouches[0].clientY;
-
-	if (x < 120 && y < 83 && $('.helpText').is(':visible')) {
-		showHelp();
+	
+	if ((x < 120 || x > trueCanvas.width - 120) && y < 83 && $('.helpText').is(':visible')) {
+		if(x < 120)
+			showHelp();
+		else
+			showHighscore();
 		return;
 	}
 }
@@ -283,8 +286,11 @@ function handleClickBefore(e) {
 	var x = e.clientX;
 	var y = e.clientY;
 
-	if (x < 120 && y < 83 && $('.helpText').is(':visible')) {
-		showHelp();
+	if ((x < 120 || x > trueCanvas.width - 120) && y < 83 && $('.helpText').is(':visible')) {
+		if(x < 120)
+			showHelp();
+		else
+			showHighscore();
 		return;
 	}
 }

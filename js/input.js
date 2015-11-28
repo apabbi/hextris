@@ -79,6 +79,18 @@ function addKeyListeners() {
 		return false;
 	});
 
+	$("#highscoreBtn").on('touchstart mousedown', function() {
+		if (gameState != 1 && gameState != -1) {
+			return;
+		}
+
+		if ($('#highscoreScreen').is(":visible")) {
+			$('#highscoreScreen').fadeOut(150, "linear");
+		}
+		pause();
+		return false;
+	});
+
 	$("#colorBlindBtn").on('touchstart mousedown', function() {
 	window.colors = ["#8e44ad", "#f1c40f", "#3498db", "#d35400"];
 
@@ -160,10 +172,14 @@ function inside (point, vs) {
 };
 
 function handleClickTap(x,y) {
-	if (x < 120 && y < 83 && $('.helpText').is(':visible')) {
-		showHelp();
+	if ((x < 120 || x > trueCanvas.width - 120) && y < 83 && $('.helpText').is(':visible')) {
+		if(x < 120)
+			showHelp();
+		else
+			showHighscore();
 		return;
 	}
+
 	var radius = settings.hexWidth ;
 	var halfRadius = radius/2;
 	var triHeight = radius *(Math.sqrt(3)/2);
