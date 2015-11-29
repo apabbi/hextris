@@ -169,10 +169,14 @@ function topthreeDisplay() {
 	updateHighScores();
 	
 	$("#highscorescreen").fadeIn();
-	//$("#buttonCont").fadeIn();
 	$("#container").fadeIn();
 
     set_score_pos();
+
+    /*$('#fork-ribbon').fadeOut(300, 'linear');
+	$('#restartBtn').fadeOut(300, "linear");
+	$('#buttonCont').fadeOut(300, "linear");
+	*/
 }
 
 function updateHighScores (){
