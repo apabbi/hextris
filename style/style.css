@@ -286,6 +286,10 @@ button:focus {
 		width:60px;
 		height:60px;
 	}
+	#openhighscoreSideBar{
+		width:60px;
+		height:60px;
+	}
 	#pauseBtn {
 		width:60px;
 		height:60px;
@@ -522,6 +526,11 @@ body {
 	font-weight:light;
 	margin-bottom:5px;
 	margin-top:-10px;
+}
+#topScores {
+	font-size:34.5000px;
+	font-weight:light;
+	text-align: center;
 }
 
 #highScoresTitle {

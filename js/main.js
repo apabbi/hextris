@@ -385,7 +385,7 @@ function showHelp() {
 	$('#helpScreen').fadeToggle(150, "linear");
 }
 function showHighscore() {
-	/*
+	
 	if ($('#openhighscoreSideBar').attr('src') == './images/btn_back.svg') {
 		$('#openhighscoreSideBar').attr('src', './images/btn_help.svg');
 		if (gameState != 0 && gameState != -1 && gameState != 2) {
@@ -399,7 +399,13 @@ function showHighscore() {
 	}
 
 	//$("#inst_main_body").html("<div id = 'instructions_head'>LEADERBOARDS</div><p>The following are top 3 scores...</p>");
+	//$("#highscorescreen").html("<div id = 'instructions_head'>LEADERBOARDS</div><p>The following are top 3 scores...</p>");
+	updateHighScores();
+	set_score_pos();
+	$("#inst_main_body").html("<h1>YOUR TOP 3 SCORES...</h1>" + "<div id = 'topScores'> <p> <br>1)   " + highscores[0] + "<br>	2)   " + highscores[1] + "<br>	3)   " + highscores[2] + " </p></div>");
 	//topthreeDisplay();
+
+
 	if (gameState == 1) {
 		pause();
 	}
@@ -413,7 +419,7 @@ function showHighscore() {
 
 	$("#openhighscoreSideBar").fadeIn(150,"linear");
 	$('#helpScreen').fadeToggle(150, "linear");
-	*/
+	
 
 	/*
 	if ($('#topthreescreen').attr('src') == './images/btn_back.svg') {
@@ -440,6 +446,8 @@ function showHighscore() {
 	$("#topthreescreen").fadeIn(150,"linear");
 	$('#highscorescreen').fadeToggle(150, "linear");
 	*/
+
+	/*
 	// if we are in the pause state, you hide the pause text paragraph 
 	if(gameState == -1){
 		hideText();
@@ -468,7 +476,7 @@ function showHighscore() {
 		$("#bottomContainer").fadeIn();
 		},1500); 
 	}
-
+	*/
 
 
 
