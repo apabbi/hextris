@@ -168,7 +168,7 @@ function topthreeDisplay() {
 	c.className = "blur";
 	updateHighScores();
 	
-	$("#topthreescreen").fadeIn();
+	$("#highscorescreen").fadeIn();
 	//$("#buttonCont").fadeIn();
 	$("#container").fadeIn();
 

@@ -373,8 +373,8 @@ function showHelp() {
 	$('#helpScreen').fadeToggle(150, "linear");
 }
 function showHighscore() {
-
-	if ($('#openHighscoreSideBar').attr('src') == './images/btn_back.svg') {
+	/*
+	if ($('#openhighscoreSideBar').attr('src') == './images/btn_back.svg') {
 		$('#openhighscoreSideBar').attr('src', './images/btn_help.svg');
 		if (gameState != 0 && gameState != -1 && gameState != 2) {
 			//$('#fork-ribbon').fadeOut(150, 'linear');
@@ -396,8 +396,52 @@ function showHighscore() {
 		return;
 	}
 
-	$("#openSideBar").fadeIn(150,"linear");
+	//$("#topthreescreen").fadeIn(150,"linear");
+	//$("#container").fadeToggle(150, "linear");
+
+	$("#openhighscoreSideBar").fadeIn(150,"linear");
 	$('#helpScreen').fadeToggle(150, "linear");
-	
-	//drawScoreboard();
+	*/
+
+	/*
+	if ($('#topthreescreen').attr('src') == './images/btn_back.svg') {
+		$('#openhighscoreSideBar').attr('src', './images/btn_help.svg');
+		if (gameState != 0 && gameState != -1 && gameState != 2) {
+			//$('#fork-ribbon').fadeOut(150, 'linear');
+		}
+	} else {
+		$('#topthreescreen').attr('src', './images/btn_back.svg');
+		if (gameState == 0 && gameState == -1 && gameState == 2) {
+			//$('#fork-ribbon').fadeIn(150, 'linear');
+		}
+	}
+	topthreeDisplay();
+
+	if (gameState == 1) {
+		pause();
+	}
+
+	if($("#pauseBtn").attr('src') == "./images/btn_pause.svg" && gameState != 0 && !infobuttonfading) {
+		return;
+	}
+
+	$("#topthreescreen").fadeIn(150,"linear");
+	$('#highscorescreen').fadeToggle(150, "linear");
+	*/
+
+	topthreeDisplay();
+	//$("#highscorescreen").fadeIn(150,"linear");
+	//$("#container").fadeIn(150, "linear");
+
+	if ($('#highscorescreen').is(':visible')) {
+		$('#highscorescreen').fadeOut(2000, "linear");
+	}
+	if ($('#container').is(':visible')) {
+		$('#container').fadeOut(2000, "linear");
+	}
+	if ($('#openhighscoreSideBar').is(':visible')) {
+		$('#openhighscoreSideBar').fadeOut(100, "linear");
+	}
+
+
 }
