@@ -78,7 +78,7 @@ function addKeyListeners() {
 		pause();
 		return false;
 	});
-
+	/*
 	$("#highscoreBtn").on('touchstart mousedown', function() {
 		if (gameState != 1 && gameState != -1) {
 			return;
@@ -90,7 +90,7 @@ function addKeyListeners() {
 		pause();
 		return false;
 	});
-
+	*/
 	$("#colorBlindBtn").on('touchstart mousedown', function() {
 	window.colors = ["#8e44ad", "#f1c40f", "#3498db", "#d35400"];
 

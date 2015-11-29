@@ -85,9 +85,20 @@ function hideUIElements() {
 	$('#pauseBtn').hide();
 	$('#restartBtn').hide();
 	$('#startBtn').hide();
+	$('.scoreBtn').hide(); // also need to hide the button we created
+
 }
 
 function init(b) {
+	// take out the highscore screen if out, if its still present after user restarted
+	if ($('#highscorescreen').is(':visible')) {
+		$('#highscorescreen').fadeOut(0, "linear");
+	}
+	// part of the process of removing the highscore screen
+	if ($('#container').is(':visible')) {
+		$('#container').fadeOut(0, "linear");
+	}
+
 	if(settings.ending_block && b == 1){return;}
 	if (b) {
 		$("#pauseBtn").attr('src',"./images/btn_pause.svg");
@@ -220,6 +231,7 @@ function setStartScreen() {
 	$('#pauseBtn').hide();
 	$('#restartBtn').hide();
 	$('#startBtn').show();
+	$('.scoreBtn').show(); // add the new button we created in the startScreen
 
 	gameState = 0;
 	requestAnimFrame(animLoop);
