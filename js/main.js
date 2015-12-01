@@ -385,7 +385,6 @@ function showHelp() {
 	$('#helpScreen').fadeToggle(150, "linear");
 }
 function showHighscore() {
-	
 	if ($('#openhighscoreSideBar').attr('src') == './images/btn_back.svg') {
 		$('#openhighscoreSideBar').attr('src', './images/btn_help.svg');
 		if (gameState != 0 && gameState != -1 && gameState != 2) {
@@ -399,13 +398,23 @@ function showHighscore() {
 	}
 
 	//$("#inst_main_body").html("<div id = 'instructions_head'>LEADERBOARDS</div><p>The following are top 3 scores...</p>");
-	//$("#highscorescreen").html("<div id = 'instructions_head'>LEADERBOARDS</div><p>The following are top 3 scores...</p>");
+	//topthreeDisplay();
 	updateHighScores();
 	set_score_pos();
+
+	// check the edge case when any of your highscore are NULL OR UNDEFINED (this would happen when user plays game for the 1st time ever)
+	if( highscores[0] == null || highscores[0] == undefined){
+		highscores[0] = 0;
+	}
+	if( highscores[1] == null || highscores[1] == undefined){
+		highscores[1] = 0;
+	}
+	if( highscores[2] == null || highscores[2] == undefined){
+		highscores[2] = 0;
+	}
+	// Print out the top 3 highscores in the openHighscoreSidebar screen's page
 	$("#inst_main_body").html("<h1>YOUR TOP 3 SCORES...</h1>" + "<div id = 'topScores'> <p> <br>1)   " + highscores[0] + "<br>	2)   " + highscores[1] + "<br>	3)   " + highscores[2] + " </p></div>");
-	//topthreeDisplay();
-
-
+	
 	if (gameState == 1) {
 		pause();
 	}

@@ -202,7 +202,7 @@ function pause(o) {
 	}
 
 	var c = document.getElementById("canvas");
-	if (gameState == -1) {							// Note when in paused state then gameState = -1
+	if (gameState == -1) {							// evalutate if statement when you were already in the paused state (gameState = -1)
 		$('#fork-ribbon').fadeOut(300, 'linear');
 		$('#restartBtn').fadeOut(300, "linear");
 		$('#buttonCont').fadeOut(300, "linear");
