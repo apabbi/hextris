@@ -192,6 +192,10 @@ function pause(o) {
 			$('#helpScreen').fadeOut(300, "linear");
 		}
 
+		if ($('#leaderScreen').is(':visible')) {
+			$('#leaderScreen').fadeOut(300, "linear");
+		}
+
 		$("#pauseBtn").attr("src", "./images/btn_pause.svg");
 		$('.helpText').fadeOut(300, 'linear');
 		$('.scoreBtn').fadeOut(300, 'linear');

@@ -75,6 +75,9 @@ function addKeyListeners() {
 		if ($('#helpScreen').is(":visible")) {
 			$('#helpScreen').fadeOut(150, "linear");
 		}
+		if ($('#leaderScreen').is(":visible")) {
+			$('#leaderScreen').fadeOut(150, "linear");
+		}
 		pause();
 		return false;
 	});

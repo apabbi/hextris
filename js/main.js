@@ -68,6 +68,9 @@ function resumeGame() {
 		if ((gameState == 1 || gameState == 2) && !$('#helpScreen').is(':visible')) {
 			$('#openSideBar').fadeOut(150, "linear");
 		}
+		if ((gameState == 1 || gameState == 2) && !$('#leaderScreen').is(':visible')) {
+			$('#openhighscoreSideBar').fadeOut(150, "linear");
+		}
 	}, 7000);
 
 	checkVisualElements();
@@ -75,6 +78,7 @@ function resumeGame() {
 
 function checkVisualElements() {
 	if ($('#openSideBar').is(":visible")) $('#openSideBar').fadeOut(150, "linear");
+	if ($('#openhighscoreSideBar').is(":visible")) $('#openhighscoreSideBar').fadeOut(150, "linear");
 	if (!$('#pauseBtn').is(':visible')) $('#pauseBtn').fadeIn(150, "linear");
 	$('#fork-ribbon').fadeOut(150);
 	if (!$('#restartBtn').is(':visible')) $('#restartBtn').fadeOut(150, "linear");
@@ -97,9 +101,16 @@ function init(b) {
 		if ($('#helpScreen').is(":visible")) {
 			$('#helpScreen').fadeOut(150, "linear");
 		}
+		if ($('#leaderScreen').is(":visible")) {
+			$('#leaderScreen').fadeOut(150, "linear");
+		}
 
 		setTimeout(function() {
 			$('#openSideBar').fadeOut(150, "linear");
+			infobuttonfading = false;
+		}, 7000);
+		setTimeout(function() {
+			$('#openhighscoreSideBar').fadeOut(150, "linear");
 			infobuttonfading = false;
 		}, 7000);
 		clearSaveState();
@@ -265,10 +276,14 @@ function animLoop() {
 			if ($('#helpScreen').is(':visible')) {
 				$('#helpScreen').fadeOut(150, "linear");
 			}
+			if ($('#leaderScreen').is(':visible')) {
+				$('#leaderScreen').fadeOut(150, "linear");
+			}
 
 			if ($('#pauseBtn').is(':visible')) $('#pauseBtn').fadeOut(150, "linear");
 			if ($('#restartBtn').is(':visible')) $('#restartBtn').fadeOut(150, "linear");
 			if ($('#openSideBar').is(':visible')) $('.openSideBar').fadeOut(150, "linear");
+			if ($('#openhighscoreSideBar').is(':visible')) $('.openhighscoreSideBar').fadeOut(150, "linear");
 
 			canRestart = 0;
 			clearSaveState();
@@ -352,6 +367,11 @@ function checkGameOver() {
 }
 
 function showHelp() {
+	// to avoid any conflicts, if leaderscreen is open, we fade it out
+	if ($('#leaderScreen').is(":visible")) {
+		$('#leaderScreen').fadeOut(150, "linear");
+	}
+
 	if ($('#openSideBar').attr('src') == './images/btn_back.svg') {
 		$('#openSideBar').attr('src', './images/btn_help.svg');
 		if (gameState != 0 && gameState != -1 && gameState != 2) {
@@ -377,9 +397,14 @@ function showHelp() {
 	$('#helpScreen').fadeToggle(150, "linear");
 }
 function showHighscore() {
-	
+	// to avoid any conflicts, if helpscreen is open, we fade it out
+	if ($('#helpScreen').is(":visible")) {
+		$('#helpScreen').fadeOut(150, "linear");
+		$('#openSideBar').attr('src', './images/btn_help.svg');
+	}
+
 	if ($('#openhighscoreSideBar').attr('src') == './images/btn_back.svg') {
-		$('#openhighscoreSideBar').attr('src', './images/btn_help.svg');
+		$('#openhighscoreSideBar').attr('src', './images/leaderboardsBtn.png');
 		if (gameState != 0 && gameState != -1 && gameState != 2) {
 			//$('#fork-ribbon').fadeOut(150, 'linear');
 		}
@@ -404,7 +429,7 @@ function showHighscore() {
 		highscores[2] = 0;
 	}
 	// Print out the top 3 highscores in the openHighscoreSidebar screen's page
-	$("#inst_main_body").html("<h1>YOUR TOP 3 SCORES...</h1>" + "<div id = 'topScores'> <p> <br>1)   " + highscores[0] + "<br>	2)   " + highscores[1] + "<br>	3)   " + highscores[2] + " </p></div>");
+	$("#leader_body").html("<h1>YOUR TOP 3 SCORES...</h1>" + "<div id = 'topScores'> <p> <br>1)   " + highscores[0] + "<br>	2)   " + highscores[1] + "<br>	3)   " + highscores[2] + " </p></div>");
 	
 	if (gameState == 1) {
 		pause();
@@ -415,6 +440,6 @@ function showHighscore() {
 	}
 
 	$("#openhighscoreSideBar").fadeIn(150,"linear");
-	$('#helpScreen').fadeToggle(150, "linear");
+	$('#leaderScreen').fadeToggle(150, "linear");
 	
 }
