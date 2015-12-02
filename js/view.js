@@ -161,24 +161,6 @@ function gameOverDisplay() {
     set_score_pos();
 }
 
-function topthreeDisplay() {
-	settings.ending_block=false;
-	Cookies.set("visited",true);
-	var c = document.getElementById("canvas");
-	c.className = "blur";
-	updateHighScores();
-	
-	$("#highscorescreen").fadeIn();
-	$("#container").fadeIn();
-
-    set_score_pos();
-
-    /*$('#fork-ribbon').fadeOut(300, 'linear');
-	$('#restartBtn').fadeOut(300, "linear");
-	$('#buttonCont').fadeOut(300, "linear");
-	*/
-}
-
 function updateHighScores (){
     $("#cScore").text(score);
     $("#1place").text(highscores[0]);

@@ -90,14 +90,6 @@ function hideUIElements() {
 }
 
 function init(b) {
-	// take out the highscore screen if out, if its still present after user restarted
-	if ($('#highscorescreen').is(':visible')) {
-		$('#highscorescreen').fadeOut(0, "linear");
-	}
-	// part of the process of removing the highscore screen
-	if ($('#container').is(':visible')) {
-		$('#container').fadeOut(0, "linear");
-	}
 
 	if(settings.ending_block && b == 1){return;}
 	if (b) {
@@ -385,6 +377,7 @@ function showHelp() {
 	$('#helpScreen').fadeToggle(150, "linear");
 }
 function showHighscore() {
+	
 	if ($('#openhighscoreSideBar').attr('src') == './images/btn_back.svg') {
 		$('#openhighscoreSideBar').attr('src', './images/btn_help.svg');
 		if (gameState != 0 && gameState != -1 && gameState != 2) {
@@ -397,8 +390,6 @@ function showHighscore() {
 		}
 	}
 
-	//$("#inst_main_body").html("<div id = 'instructions_head'>LEADERBOARDS</div><p>The following are top 3 scores...</p>");
-	//topthreeDisplay();
 	updateHighScores();
 	set_score_pos();
 
@@ -423,70 +414,7 @@ function showHighscore() {
 		return;
 	}
 
-	//$("#topthreescreen").fadeIn(150,"linear");
-	//$("#container").fadeToggle(150, "linear");
-
 	$("#openhighscoreSideBar").fadeIn(150,"linear");
 	$('#helpScreen').fadeToggle(150, "linear");
 	
-
-	/*
-	if ($('#topthreescreen').attr('src') == './images/btn_back.svg') {
-		$('#openhighscoreSideBar').attr('src', './images/btn_help.svg');
-		if (gameState != 0 && gameState != -1 && gameState != 2) {
-			//$('#fork-ribbon').fadeOut(150, 'linear');
-		}
-	} else {
-		$('#topthreescreen').attr('src', './images/btn_back.svg');
-		if (gameState == 0 && gameState == -1 && gameState == 2) {
-			//$('#fork-ribbon').fadeIn(150, 'linear');
-		}
-	}
-	topthreeDisplay();
-
-	if (gameState == 1) {
-		pause();
-	}
-
-	if($("#pauseBtn").attr('src') == "./images/btn_pause.svg" && gameState != 0 && !infobuttonfading) {
-		return;
-	}
-
-	$("#topthreescreen").fadeIn(150,"linear");
-	$('#highscorescreen').fadeToggle(150, "linear");
-	*/
-
-	/*
-	// if we are in the pause state, you hide the pause text paragraph 
-	if(gameState == -1){
-		hideText();
-	}
-	// take out the social icons
-	$("#bottomContainer").fadeOut(100);
-	
-	topthreeDisplay();
-	// fade out the screens if they are there
-	if ($('#highscorescreen').is(':visible')) {
-		$('#highscorescreen').fadeOut(1000, "linear");
-	}
-	if ($('#container').is(':visible')) {
-		$('#container').fadeOut(1000, "linear");
-	}
-	// change the game's opacity from blur to normal again
-	var c = document.getElementById("canvas");
-	if(c.className == "blur"){
-		setTimeout(function(){
-			c.className = "";
-			// if we were in the paused state orignally, bring back the pause text paragraph
-			if(gameState == -1){
-			showText('paused');
-	}
-		// bring back the social icons
-		$("#bottomContainer").fadeIn();
-		},1500); 
-	}
-	*/
-
-
-
 }
