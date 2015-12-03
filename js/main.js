@@ -1,3 +1,4 @@
+// creating the background according to the window size
 function scaleCanvas() {
 	canvas.width = $(window).width();
 	canvas.height = $(window).height();
@@ -57,6 +58,7 @@ function toggleDevTools() {
 	$('#devtools').toggle();
 }
 
+// Resuming and setting what should be seen  when game is resumed 
 function resumeGame() {
 	gameState = 1;
 	hideUIElements();
@@ -65,7 +67,7 @@ function resumeGame() {
 	importing = 0;
 	startTime = Date.now();
 	setTimeout(function() {
-		if ((gameState == 1 || gameState == 2) && !$('#helpScreen').is(':visible')) {
+		if ((gameState == 1 || gameState == 2) && !$('#helpScreen').is(':visible')) {// after 7 seconds, if the help/leader screen is visible, fade the buttons
 			$('#openSideBar').fadeOut(150, "linear");
 		}
 		if ((gameState == 1 || gameState == 2) && !$('#leaderScreen').is(':visible')) {
@@ -93,6 +95,7 @@ function hideUIElements() {
 
 }
 
+// initialize the scores , game state and show/hide all the buttons that should be seen  or not
 function init(b) {
 
 	if(settings.ending_block && b == 1){return;}
@@ -116,7 +119,7 @@ function init(b) {
 		clearSaveState();
 		checkVisualElements();
 	}
-	if (highscores.length === 0 ){
+	if (highscores.length === 0 ){//if there is no existing scores, set the high score to 0 by default
 		$("#currentHighScore").text(0);
 	}
 	else {
@@ -196,7 +199,7 @@ function init(b) {
 	hideText();
 }
 
-function addNewBlock(blocklane, color, iter, distFromHex, settled) { //last two are optional parameters
+function addNewBlock(blocklane, color, iter, distFromHex, settled) { //last two are optional parameters, make a new block and push  add it in the array blocks
 	iter *= settings.speedModifier;
 	if (!history[MainHex.ct]) {
 		history[MainHex.ct] = {};
@@ -337,7 +340,7 @@ function enableRestart() {
 	canRestart = 1;
 }
 
-function isInfringing(hex) {
+function isInfringing(hex) {// returns true if the any blocks  columns reach more than the vertical limit and false otherwise
 	for (var i = 0; i < hex.sides; i++) {
 		var subTotal = 0;
 		for (var j = 0; j < hex.blocks[i].length; j++) {

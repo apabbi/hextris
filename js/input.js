@@ -54,20 +54,20 @@ function addKeyListeners() {
 	keypress.register_combo({
 		keys: "enter",
 		on_keydown: function() {
-			if (gameState==1 || importing == 1) {
+			if (gameState==1 || importing == 1) {// if play mode, then restart
 				init(1);
 			}
-			if (gameState == 2) {
+			if (gameState == 2) {// if game over, then restart 
 				init();
 				$("#gameoverscreen").fadeOut();
 			}
-			if (gameState===0) {
+			if (gameState===0) {// if at start screen then start game
 				resumeGame();
 			}
 		}
 	});
 
-	$("#pauseBtn").on('touchstart mousedown', function() {
+	$("#pauseBtn").on('touchstart mousedown', function() {//When the pause button is clicked, if the game isn't running nor paused, hide help & leader screen
 		if (gameState != 1 && gameState != -1) {
 			return;
 		}
@@ -162,7 +162,7 @@ function inside (point, vs) {
 	return inside;
 };
 
-function handleClickTap(x,y) {
+function handleClickTap(x,y) {// function executes according the the position of clicks on the screen and its game state
 	if ((x < 120 || x > trueCanvas.width - 120) && y < 83 && $('.helpText').is(':visible')) {
 		if(x < 120)
 			showHelp();

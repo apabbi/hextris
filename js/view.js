@@ -169,7 +169,7 @@ function updateHighScores (){
 }
 
 var pausable = true;
-function pause(o) {
+function pause(o) {	// function returns true when the game state is  in play state  else return false																			
     if (gameState == 0 || gameState == 2 || !pausable) {
         return;
     }
@@ -184,7 +184,7 @@ function pause(o) {
 	}
 
 	var c = document.getElementById("canvas");
-	if (gameState == -1) {							// evalutate if statement when you were already in the paused state (gameState = -1)
+	if (gameState == -1) {							// evaluate if statement when you were already in the paused state (gameState = -1), then resumes the game 
 		$('#fork-ribbon').fadeOut(300, 'linear');
 		$('#restartBtn').fadeOut(300, "linear");
 		$('#buttonCont').fadeOut(300, "linear");
@@ -205,7 +205,7 @@ function pause(o) {
 			gameState = prevGameState;
 			pausable =true;
 		}, 400);
-	} else if (gameState != -2 && gameState !== 0 && gameState !== 2) {
+	} else if (gameState != -2 && gameState !== 0 && gameState !== 2) { //else f the game is not at the start and not at the end screen 
 		$('#restartBtn').fadeIn(300, "linear");
 		$('#buttonCont').fadeIn(300, "linear");
 		$('.helpText').fadeIn(300, 'linear');
