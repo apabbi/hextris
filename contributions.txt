@@ -1,0 +1,7 @@
+We want to add a high schore button to view a players top 3 scores. We want to add comments to the uncdocumented project.
+
+Implementation 1: High Score button
+files: Main.js, view.js, index.html, style.CSS, initialization, input.js
+
+Implementation 2: documentation
+files: Main.js, view.js, input.js, initialization.js
